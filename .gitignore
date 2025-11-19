@@ -1,3 +1,4 @@
 node_modules/
 .env
-Db.jsonnode_modules/
+Db.json
+node_modules/
