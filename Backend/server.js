@@ -7,6 +7,8 @@ const router =  require('./Routes/Budget')
 
 app.use(cors());
 app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+
 
 app.use("/", router)
 console.log(router)

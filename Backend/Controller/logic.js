@@ -16,12 +16,16 @@ function loadDb(){
 }
 
 function enterAmt(req,res){
-    const newEntry = req.body;
+    let newEntry = req.body;
 
-
+     newEntry.price = Number(newEntry.price);
     let db = loadDb();
+    if (!newEntry.name || !newEntry.price || !newEntry.month) {
+        return res.status(400).send("Missing required fields: name, price, or month");
+    }
 
-    const exists = db.find(item => item.name === newEntry.name && item.price === newEntry.price);
+    
+    const exists = db.find(item => item.name === newEntry.name && item.price === newEntry.price && item.month === newEntry.month);
 
     if(exists){
         return res.send("Entry is already added in the Database")
@@ -37,7 +41,7 @@ function enterAmt(req,res){
 function totalExp(req,res){
     let db = loadDb();
     let total = 0;
-   let monthexp = db.filter(e => e.month === "November") ; // to get month by the user
+   let monthexp = db.filter(e => e.month === month) ; // to get month by the user
     
    monthexp.forEach(e => {    
         total += e.price;  
