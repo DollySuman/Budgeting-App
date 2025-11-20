@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Select the month you want to see your expenses of</h3>
+    <select id="month-select" onchange="getTotal()">
+        <option value="2025-01">January 2025</option>
+        <option value="2025-02">February 2025</option>
+        <option value="2025-03">March 2025</option>
+        <option value="2025-04">April 2025</option>
+        <option value="2025-05">May 2025</option>
+        <option value="2025-06">June 2025</option>
+        <option value="2025-07">July 2025</option>
+        <option value="2025-08">August 2025</option>
+        <option value="2025-09">September 2025</option>
+        <option value="2025-10">October 2025</option>
+        <option value="2025-11">November 2025</option>
+        <option value="2025-12">December 2025</option>
+    </select>
+
+    <div class="show">
+
+    </div>
+
+    <script>
+        async function getTotal() {
+            let result = await fetch("http://localhost:3000/entry/total")
+            let total = await result.text();
+            
+            document.querySelector(".show").innerHTML = `The total of you month is ${total}`
+        }
+
+        getTotal();
+    </script>
+</body>
+
+</html>
