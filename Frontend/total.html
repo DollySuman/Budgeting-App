@@ -5,35 +5,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+<style>
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        background-color: rgba(4, 145, 221, 0.758);
+        height: 200px;
+        border-radius: 20px;
+        
+    }
+
+    body{
+        background-image: url("https://wallpapers.com/images/hd/good-background-b2ez13y4kvzs1b2l.jpg");
+       
+    }
+
+    .icon{
+        background-color: rgba(197, 17, 179, 0.514);
+        border-radius: 70px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .middle{
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12px;
+        color: rgb(229, 229, 229);
+    }
+
+    .show{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .card{
+        width: 300px;
+        height: 200px;
+        background-color: rgba(217, 18, 194, 0.73);
+        padding: 12px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-start;
+        align-items: center;
+
+        
+
+    }
+
+    #month-select{
+        background-color: rgba(223, 12, 12, 0.564);
+        padding: 7px;
+        margin: 2px;
+        border-radius: 30px;
+        font-weight: bold;
+
+    }
+</style>
 
 <body>
-    <h3>Select the month you want to see your expenses of</h3>
-    <select id="month-select" onchange="getTotal()">
-        <option value="2025-01">January 2025</option>
-        <option value="2025-02">February 2025</option>
-        <option value="2025-03">March 2025</option>
-        <option value="2025-04">April 2025</option>
-        <option value="2025-05">May 2025</option>
-        <option value="2025-06">June 2025</option>
-        <option value="2025-07">July 2025</option>
-        <option value="2025-08">August 2025</option>
-        <option value="2025-09">September 2025</option>
-        <option value="2025-10">October 2025</option>
-        <option value="2025-11">November 2025</option>
-        <option value="2025-12">December 2025</option>
-    </select>
+    <div class="content">
 
-    <div class="show">
+        <div class="icon">
+            <div class="middle">
 
+                <span class="material-symbols-outlined">
+                    currency_rupee_circle
+                </span>
+            </div>
+        </div>
+
+        <h3>Select the month you want to see your expenses of</h3>
+        <select id="month-select" onchange="getTotal()">
+            <option value="2025-01">January 2025</option>
+            <option value="2025-02">February 2025</option>
+            <option value="2025-03">March 2025</option>
+            <option value="2025-04">April 2025</option>
+            <option value="2025-05">May 2025</option>
+            <option value="2025-06">June 2025</option>
+            <option value="2025-07">July 2025</option>
+            <option value="2025-08">August 2025</option>
+            <option value="2025-09">September 2025</option>
+            <option value="2025-10">October 2025</option>
+            <option value="2025-11">November 2025</option>
+            <option value="2025-12">December 2025</option>
+        </select>
     </div>
+
+    
+
+    
 
     <script>
         async function getTotal() {
             let result = await fetch("http://localhost:3000/entry/total")
             let total = await result.text();
             
-            document.querySelector(".show").innerHTML = `The total of you month is ${total}`
+            document.querySelector(".show").innerHTML = `<div class="show">
+        <div class="card">
+            Hii Your total monthly expense for this month is as follows :
+            TOTAL = ${total}
+        </div>
+    </div>`
         }
 
         getTotal();
@@ -41,3 +127,4 @@
 </body>
 
 </html>
+
