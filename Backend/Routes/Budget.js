@@ -20,7 +20,8 @@ router.get("/entry", (req,res)=> {
 
 router.post("/entry", enterAmt)
 
-router.get("/entry/total",totalExp)
+
+router.post("/entry/total",totalExp)
 
 
 module.exports = router;

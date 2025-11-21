@@ -105,22 +105,31 @@
         </select>
     </div>
 
+    <div class="show">
+
+    </div>
     
 
     
 
     <script>
         async function getTotal() {
-            let result = await fetch("http://localhost:3000/entry/total")
+            const month = document.getElementById("month-select").value;
+            let result = await fetch("http://localhost:3000/entry/total", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({month})
+            })
             let total = await result.text();
+            document.querySelector(".show").innerHTML = " "
             
-            document.querySelector(".show").innerHTML = `<div class="show">
-        <div class="card">
-            Hii Your total monthly expense for this month is as follows :
-            TOTAL = ${total}
-        </div>
-    </div>`
-        }
+            document.querySelector(".show").innerHTML = `
+            <div class="card">
+                Hii Your total monthly expense for this month is as follows :
+                ${month} TOTAL = ${total}
+                </div>`
+            }
+
 
         getTotal();
     </script>
