@@ -16,7 +16,7 @@
             gap: 40px;
         }
         .card{
-            border: 2px solid red;
+            border: 2px solid rgb(228, 15, 15);
             width: 70vh;
             height: 80vh;
             border-radius: 20px;
@@ -24,6 +24,8 @@
             flex-direction: column;
             /* justify-content: center; */
             align-items: center;
+            background-image: url("https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8160.jpg?semt=ais_incoming&w=740&q=80");
+            background-size: cover;
             
         }
 
@@ -40,7 +42,7 @@
         .btn{
             padding: 5px 8px;
             border-radius: 10px;
-            background-color: rgba(25, 165, 241, 0.73);
+            background-color: rgba(238, 39, 238, 0.73);
             font-weight: bold;
 
             
@@ -57,6 +59,21 @@
             padding: 4px 20px;
             border-radius: 5px;
             color: black;
+            box-sizing: border-box;
+            width: 200px;
+            cursor: pointer;
+            
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        .form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
         }
     </style>
 </head>
@@ -83,7 +100,7 @@
                 <input class="inp" type="month" name="month" id="month" required>
                 <br>
 
-                <button class="btn" type="submit">Save</button>
+                <button style="background-color: color-mix(in srgb-linear, rgb(226, 222, 222) 20%, rgb(208, 65, 125) 80%);" class="btn" type="submit">Save</button>
             </form>
 
             <div class="options">
