@@ -28,14 +28,14 @@ function enterAmt(req, res) {
     const exists = db.find(item => item.name === newEntry.name && item.price === newEntry.price && item.month === newEntry.month);
 
     if (exists) {
-        return res.send("Entry is already added in the Database")
+        return res.json({ message :"Entry is already added in the Database"})
     }
 
     db.push(newEntry)
 
     fs.writeFileSync("Db.json", JSON.stringify(db, null, 2));
-    res.send("Amount saved successfully");
-    res.send()
+    return res.json({ message :"Amount saved successfully"})
+    
 
 }
 

@@ -100,7 +100,7 @@
                 <input class="inp" type="month" name="month" id="month" required>
                 <br>
 
-                <button style="background-color: color-mix(in srgb-linear, rgb(226, 222, 222) 20%, rgb(208, 65, 125) 80%);" class="btn" type="submit">Save</button>
+                <button style="background-color: color-mix(in srgb-linear, rgb(226, 222, 222) 20%, rgb(208, 65, 125) 80%);" class="btn save" type="submit">Save</button>
             </form>
 
             <div class="options">
@@ -111,5 +111,28 @@
           </div>
         </div>
     </div>
+
+    <script>
+       document.querySelector("form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        const res = await fetch("http://localhost:3000/entry", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data)
+        })
+
+        const result = await res.json();
+        
+        alert(result.message)
+        
+        form.reset();
+    })
+    </script>
 </body>
 </html>
