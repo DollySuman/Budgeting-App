@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-image: url("https://files.123freevectors.com/wp-content/original/119522-abstract-pastel-pink-background-image.jpg");
+        }
         .container{
             display: flex;
             flex-direction: column;
@@ -17,15 +20,43 @@
             width: 70vh;
             height: 80vh;
             border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            
         }
 
         .form{
             padding: 15px;
             /* text-align: center; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: start;
             gap: 20px;
+        }
+        .options{
+            margin-top: 100px;
+        }
+
+        .btn{
+            padding: 5px 8px;
+            border-radius: 10px;
+            background-color: rgba(25, 165, 241, 0.73);
+            font-weight: bold;
+
+            
+        }
+
+        .btn:hover{
+            cursor: pointer;
+            background-color: rgb(5, 150, 207);
+            color: rgb(243, 239, 241);
+        }
+
+        .inp{
+            background-color: rgba(29, 209, 155, 0.664);
+            padding: 4px 20px;
+            border-radius: 5px;
+            color: black;
         }
     </style>
 </head>
@@ -41,19 +72,25 @@
               <form action="http://localhost:3000/entry" method="POST">
 
                 <label for="">Please enter the name of the item</label>
-                <input type="text" placeholder="Enter item name" id="name" name="name" required>
+                <input class="inp" type="text" placeholder="Enter item name" id="name" name="name" required>
                 <br>
 
                 <label for="">Enter the price of the item</label>
-                <input type="number" name="price" id="price" placeholder="Enter Price" required>
+                <input class="inp" type="number" name="price" id="price" placeholder="Enter Price" required>
                 <br>
 
                 <label for="month">Select the Month now</label>
-                <input type="month" name="month" id="month" required>
+                <input class="inp" type="month" name="month" id="month" required>
                 <br>
 
-                <button type="submit">Save</button>
+                <button class="btn" type="submit">Save</button>
             </form>
+
+            <div class="options">
+                <button class="btn">Get Total</button>
+                <button class="btn">Go back</button>
+                <button class="btn">Edit</button>
+            </div>
           </div>
         </div>
     </div>
