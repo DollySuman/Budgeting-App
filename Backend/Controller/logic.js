@@ -55,3 +55,5 @@ function totalExp(req, res) {
 }
 
 module.exports = { enterAmt, totalExp };
+
+// DB CLEAR KARNE KA BHI LOGIC DEKHO
