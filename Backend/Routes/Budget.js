@@ -20,7 +20,9 @@ router.get("/entry", (req,res)=> {
 
 router.post("/entry", enterAmt)
 
-
+router.get("/entry/total", (req,res) => {
+   res.sendFile(path.join(process.cwd(), "Frontend", "total.html")) 
+})
 router.post("/entry/total",totalExp)
 
 

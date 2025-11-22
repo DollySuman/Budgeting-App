@@ -104,7 +104,7 @@
             </form>
 
             <div class="options">
-                <button class="btn">Get Total</button>
+                <button class="btn" onclick="goToTotal()">Get Total</button>
                 <button class="btn">Go back</button>
                 <button class="btn">Edit</button>
             </div>
@@ -133,6 +133,13 @@
         
         form.reset();
     })
+
+    function goToTotal(){
+        window.location.href = "http://localhost:3000/entry/total"
+    }
+        
+
+
     </script>
 </body>
 </html>
