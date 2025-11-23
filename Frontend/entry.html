@@ -105,7 +105,7 @@
 
             <div class="options">
                 <button class="btn" onclick="goToTotal()">Get Total</button>
-                <button class="btn">Go back</button>
+                <button onclick="goBack()" class="btn">Go back</button>
                 <button class="btn">Edit</button>
             </div>
           </div>
@@ -137,8 +137,12 @@
     function goToTotal(){
         window.location.href = "http://localhost:3000/entry/total"
     }
+
+    function goBack(){
+        window.location.href = "http://localhost:3000"
+    }
         
-    // Add functionality for edit and go back buttons
+    // Add functionality for edit and go back buttons, Also add footer
 
 
     </script>

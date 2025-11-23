@@ -6,7 +6,7 @@ const { enterAmt, totalExp}  = require("../Controller/logic");
 
 
 
-router.get("/home", (req,res) => {
+router.get("/", (req,res) => {
     res.sendFile(path.join(process.cwd(), "Frontend", "home.html"));
     
 
