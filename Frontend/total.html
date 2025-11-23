@@ -90,6 +90,19 @@
         
 
     }
+
+    .show{
+        margin-top: 60px;
+    }
+
+    button{
+        margin-top: 60px;
+        border-radius: 30px;
+        background-color: coral;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
 </style>
 
 <body>
@@ -125,7 +138,7 @@
 
     </div>
 
-    <button class="back">Go Back</button>
+    
     
 
     
@@ -139,6 +152,9 @@
                 body: JSON.stringify({month})
             })
             let total = await result.text();
+            const btn = document.createElement("button")
+            btn.textContent = "Go back"
+            btn.id = "back"
             document.querySelector(".show").innerHTML = " "
             
             document.querySelector(".show").innerHTML = `
@@ -147,7 +163,16 @@
                 <br>
                 TOTAL = ${total}
                 </div>`
+                document.querySelector(".show").appendChild(btn);
+                document.getElementById("back").onclick = function () {
+                    window.location.href = "http://localhost:3000/entry"
+                }
+
             }
+
+
+            
+            
 
 
         
