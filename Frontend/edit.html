@@ -23,11 +23,19 @@
     .showDb{
         border: 2px solid black;
         width: 500px;
-        /* height: max-content; */
-        height: 700px;
+        height: max-content;
+        /* height: 700px; */
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 10px;
+    }
+
+    .new-entry{
+        background-color: aqua;
+        width: 200px;
+        height: max-content;
+        padding: 10px;
         border-radius: 10px;
     }
 </style>
@@ -37,16 +45,16 @@
 
         <label for="">Enter the name of the item you would like to edit</label>
         <!-- <br> -->
-        <input class="inp" id="inp1" type="text" name="name" placeholder="Enter the name">
+        <input class="inp" id="inp1" type="text" name="name" placeholder="Enter the name" required>
 
         <label for="month"> Choose the month</label>
-        <input class="inp" id="inp2" type="month" name="month">
+        <input class="inp" id="inp2" type="month" name="month" required>
+
+        <button class="search" onclick="showDb()"> Search Now</button>
 
         
         <div class="showDb">
-            <div class="getDb">
-
-            </div>
+            
         </div>
         
     </div>
@@ -62,11 +70,16 @@
                 body: JSON.stringify({find, month})
             })
 
-
+            let data =await result.json();
             let card = document.createElement("div")
             card.className = "new-entry"
+            card.innerHTML = `<p> Name: ${data.name}</p>
+                <p>Month: ${data.month}</p>
+                `
             document.querySelector(".showDb").appendChild(card)
         }
+
+        
 
 
     </script>
