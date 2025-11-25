@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const { enterAmt, totalExp}  = require("../Controller/logic");
+const { enterAmt, totalExp, editDb}  = require("../Controller/logic");
 
 
 
@@ -24,6 +24,8 @@ router.get("/entry/total", (req,res) => {
    res.sendFile(path.join(process.cwd(), "Frontend", "total.html")) 
 })
 router.post("/entry/total",totalExp)
+
+router.post("/edit", editDb);
 
 router.get("/entry/edit", (req,res) => {
     res.sendFile(path.join(process.cwd(), "Frontend", "edit.html"));

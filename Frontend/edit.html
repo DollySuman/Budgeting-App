@@ -10,6 +10,25 @@
     .choice{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .inp{
+        display: block;
+        width: 300px;
+    }
+
+    .showDb{
+        border: 2px solid black;
+        width: 500px;
+        /* height: max-content; */
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
     }
 </style>
 
@@ -18,10 +37,40 @@
 
         <label for="">Enter the name of the item you would like to edit</label>
         <!-- <br> -->
-        <input class="inp" type="text" name="name" placeholder="Enter the name">
+        <input class="inp" id="inp1" type="text" name="name" placeholder="Enter the name">
 
         <label for="month"> Choose the month</label>
-        <input class="inp" type="month">
+        <input class="inp" id="inp2" type="month" name="month">
+
+        
+        <div class="showDb">
+            <div class="getDb">
+
+            </div>
+        </div>
+        
     </div>
+    <script>
+       async function showDb(){
+
+            const find = document.getElementById("inp1").value;
+            const month = document.getElementById("inp2").value;
+            
+            let result = await fetch("http://localhost:3000/edit", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({find, month})
+            })
+
+
+            let card = document.createElement("div")
+            card.className = "new-entry"
+            document.querySelector(".showDb").appendChild(card)
+        }
+
+
+    </script>
+
+
 </body>
 </html>
