@@ -1,4 +1,5 @@
-const fs = require("fs")
+const fs = require("fs");
+const { json } = require("stream/consumers");
 
 
 
@@ -54,6 +55,15 @@ function totalExp(req, res) {
 
 }
 
-module.exports = { enterAmt, totalExp };
+function editDb(req,res){
+    let db = loadDb();
+    const find = req.body.find;
+    const month = req.body.month;
+   const result = db.filter(e=> e.name == find && e.month == month) 
+
+   res,json(result); // send to front end
+}
+
+module.exports = { enterAmt, totalExp, editDb };
 
 // DB CLEAR KARNE KA BHI LOGIC DEKHO

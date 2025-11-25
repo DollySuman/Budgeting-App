@@ -25,5 +25,9 @@ router.get("/entry/total", (req,res) => {
 })
 router.post("/entry/total",totalExp)
 
+router.get("/entry/edit", (req,res) => {
+    res.sendFile(path.join(process.cwd(), "Frontend", "edit.html"));
+})
+
 
 module.exports = router;
