@@ -26,9 +26,11 @@
         height: max-content;
         /* height: 700px; */
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
+        gap: 30px;
     }
 
     .new-entry{
@@ -37,6 +39,8 @@
         height: max-content;
         padding: 10px;
         border-radius: 10px;
+        display: flex;
+        
     }
 </style>
 
@@ -70,16 +74,23 @@
                 body: JSON.stringify({find, month})
             })
 
-            let data =await result.json();
-            let card = document.createElement("div")
-            card.className = "new-entry"
-            card.innerHTML = `<p> Name: ${data.name}</p>
-                <p>Month: ${data.month}</p>
+            let data = await result.json();
+            data.forEach(entry => {
+
+                let card = document.createElement("div")
+                card.className = "new-entry"
+                card.innerHTML = `<p> Name: ${entry.name}</p>
+                <p>Month: ${entry.month}</p>
+                <p>Price: ${entry.price}</p>
                 `
-            document.querySelector(".showDb").appendChild(card)
+                
+                console.log(card);
+                document.querySelector(".showDb").appendChild(card)
+            })
         }
 
         // The cards are not being added automatically see why and also see if you should add a for each or any loop for printing all there cars
+      // No wgive it a button to select the db and edit that particular db entry and see if PUT method will be used
         
         
 

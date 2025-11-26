@@ -61,7 +61,7 @@ function editDb(req,res){
     const month = req.body.month;
    const result = db.filter(e=> e.name == find && e.month == month) 
 
-   res,json(result); // send to front end
+   res.json(result); // send to front end
 }
 
 module.exports = { enterAmt, totalExp, editDb };
