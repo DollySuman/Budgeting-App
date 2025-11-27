@@ -42,6 +42,10 @@
         display: flex;
         
     }
+
+    .btn{
+
+    }
 </style>
 
 <body>
@@ -58,7 +62,7 @@
 
         
         <div class="showDb">
-            
+           <button id = "btn"> Select </button> 
         </div>
         
     </div>
@@ -82,6 +86,7 @@
                 card.innerHTML = `<p> Name: ${entry.name}</p>
                 <p>Month: ${entry.month}</p>
                 <p>Price: ${entry.price}</p>
+                <button id = "btn"> Select </button>
                 `
                 
                 console.log(card);
@@ -89,7 +94,7 @@
             })
         }
 
-        // The cards are not being added automatically see why and also see if you should add a for each or any loop for printing all there cars
+        
       // No wgive it a button to select the db and edit that particular db entry and see if PUT method will be used
 
         //
