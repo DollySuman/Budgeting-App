@@ -60,6 +60,22 @@
         color: white;
         cursor: pointer;
     }
+
+    body{
+        background-image: url("https://cdn.dribbble.com/userupload/42762770/file/still-c27e7e3a177354be147f46301063bca6.png?format=webp&resize=400x300&vertical=center");
+        background-position: center;
+        background-size: cover;
+        background-repeat: repeat-y;
+
+    }
+
+    .inp {
+        padding: 5px 4px;
+        background-color: rgba(9, 215, 163, 0.268);
+        border-radius: 6px;
+    }
+
+
 </style>
 
 <body>
@@ -98,7 +114,7 @@
                 let card = document.createElement("div")
                 card.className = "new-entry"
                 card.innerHTML = `<p> Name: ${entry.name}</p>
-                <p>Month: ${entry.month}</p>
+                
                 <p>Price: ${entry.price}</p>
                 <button id = "btn"> Select </button>
                 `

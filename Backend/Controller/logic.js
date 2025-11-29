@@ -64,6 +64,11 @@ function editDb(req,res){
    res.json(result); // send to front end
 }
 
+function updateDb(req, res){
+    
+
+}
+
 module.exports = { enterAmt, totalExp, editDb };
 
 // DB CLEAR KARNE KA BHI LOGIC DEKHO
