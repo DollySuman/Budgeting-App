@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const { enterAmt, totalExp, editDb}  = require("../Controller/logic");
+const { enterAmt, totalExp, editDb,updateDb}  = require("../Controller/logic");
 
 
 

@@ -57,18 +57,21 @@ function totalExp(req, res) {
 
 function editDb(req,res){
     let db = loadDb();
+    // find the item in the db
     const find = req.body.find;
     const month = req.body.month;
    const result = db.filter(e=> e.name == find && e.month == month) 
+
+   //now update
 
    res.json(result); // send to front end
 }
 
 function updateDb(req, res){
-    
+
 
 }
 
-module.exports = { enterAmt, totalExp, editDb };
+module.exports = { enterAmt, totalExp, editDb,updateDb };
 
 // DB CLEAR KARNE KA BHI LOGIC DEKHO
