@@ -67,11 +67,11 @@ function editDb(req,res){
    res.json(result); // send to front end
 }
 
-function updateDb(req, res){
-
-
+function exportDb(req, res){
+    const jsondb = loadDb();
+    res.send(jsondb)
 }
 
-module.exports = { enterAmt, totalExp, editDb,updateDb };
+module.exports = { enterAmt, totalExp, editDb,exportDb };
 
 // DB CLEAR KARNE KA BHI LOGIC DEKHO

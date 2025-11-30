@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
     <style>
         body{
             background-image: url("https://files.123freevectors.com/wp-content/original/119522-abstract-pastel-pink-background-image.jpg");
@@ -108,6 +110,7 @@
                 <button class="btn" onclick="goToTotal()">Get Total</button>
                 <button onclick="goBack()" class="btn">Go back</button>
                 <button onclick="edit()" class="btn">Edit</button>
+                <button onclick="showExcel()" class="btn">Export to Excel</button>
             </div>
           </div>
         </div>
@@ -145,6 +148,20 @@
 
     function edit(){
         window.location.href ="http://localhost:3000/edit" 
+    }
+
+    const writeXLSX = XLSX;
+
+   async function showExcel(){
+
+        const data = await fetch("http://localhost:3000/exportDb")
+        const jsondb = await data.json();
+        const workbook = writeXLSX.utils.book_new();
+    const worksheet = writeXLSX.utils.json_to_sheet(jsondb);
+
+    writeXLSX.utils.book_append_sheet(workbook,worksheet, "November")
+
+    writeXLSX.writeFile(workbook, "data.xlsx")
     }
         
     // Add functionality for edit , Also add footer

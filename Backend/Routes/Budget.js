@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const { enterAmt, totalExp, editDb,updateDb}  = require("../Controller/logic");
+const { enterAmt, totalExp, editDb,exportDb}  = require("../Controller/logic");
 
 
 
@@ -30,6 +30,8 @@ router.get("/edit", (req,res) => {
     res.sendFile(path.join(process.cwd(), "Frontend", "edit.html"));
 })
 router.post("/edit", editDb);
+
+router.get("/exportDb",exportDb)
 
 
 module.exports = router;
