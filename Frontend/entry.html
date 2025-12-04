@@ -100,7 +100,7 @@
                 <br>
 
                 <label for="month">Select the Month now</label>
-                <input class="inp" type="date" name="month" id="month" required>
+                <input class="inp" type="date" name="month" id="date" required>
                 <br>
 
                 <button style="background-color: color-mix(in srgb-linear, rgb(226, 222, 222) 20%, rgb(208, 65, 125) 80%);" class="btn save" type="submit">Save</button>
@@ -154,12 +154,16 @@
 
    async function showExcel(){
 
+        // const dateinp = document.getElementById("date").value
+        // const month = new Date(dateinp)
+
+       // Can I get db filtered as per monthly basis 
         const data = await fetch("http://localhost:3000/exportDb")
         const jsondb = await data.json();
         const workbook = writeXLSX.utils.book_new();
     const worksheet = writeXLSX.utils.json_to_sheet(jsondb);
 
-    writeXLSX.utils.book_append_sheet(workbook,worksheet, "November")
+    writeXLSX.utils.book_append_sheet(workbook,worksheet, "Sheet1")
 
     writeXLSX.writeFile(workbook, "data.xlsx")
     }

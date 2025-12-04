@@ -43,11 +43,12 @@ function enterAmt(req, res) {
 function totalExp(req, res) {
     let db = loadDb();
     let total = 0;
-    const month = req.body.month;
-    let monthexp = db.filter(e => e.month === month); // to get month by the user
+    const month = Number(req.body.month);
+   
+    let monthexp = db.filter(e => new Date(e.month).getMonth() + 1 === month); // to get month by the user
 
     monthexp.forEach(e => {
-        total += Number(e.price);
+        total += e.price;
     });
     res.send(total.toString());
 
